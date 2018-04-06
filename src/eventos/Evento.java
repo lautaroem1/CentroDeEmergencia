@@ -5,7 +5,7 @@ import hospital.Servidor;
 
 public abstract class Evento {
 
-    private int tipo;
+    private byte tipo;
 	/*
 	Codificacion
 		0: Arribo
@@ -20,11 +20,11 @@ public abstract class Evento {
 
     }
 
-    public int getTipo() {
+    public byte getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(byte tipo) {
         this.tipo = tipo;
     }
 
