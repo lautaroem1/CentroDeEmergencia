@@ -8,10 +8,10 @@ import java.util.LinkedList;
 
 public class Fel {
 	private static Fel fel;
-	private LinkedList lista;
+	private LinkedList<Evento> lista;
         
 	private Fel(){
-            lista = new LinkedList();	
+            lista = new LinkedList<>();
 	}
 	
 	public static Fel getFel(){
@@ -21,15 +21,15 @@ public class Fel {
 	}
 	
 	public void insertarFel(Evento e){
-            
+
 	}
 
 	public Evento suprimirFel(){
-		
+		return null;
 	}
 	
 	public void mostrarFel(){
-		
+
 	}
 	
 	public LinkedList getLista() {
