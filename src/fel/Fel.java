@@ -21,12 +21,12 @@ public class Fel {
     }
 
     public LinkedList getLista() {
-        return lista;
+        return this.lista;
     }
 
     public void insertarFel(Evento e) {
         try {
-            lista.add(e);
+            this.lista.add(e);
         } catch (Exception e1) {
             // TODO: 8/4/2018 Si no se puede agregar un elemento a la Fel se deberia notificar al usuario con un cartel de error, y cerrar la simulacion.
             System.exit(-1);

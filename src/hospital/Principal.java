@@ -17,37 +17,35 @@ public class Principal {
         ListIterator iterator;
         float tiempoSimulacion;
 
-        /*Creo la lista de eventos futuros*/
+        // Creo la Fel, Queue y Servidor
         Fel fel = Fel.getFel();
-		/*
-		Creo la cola de espera
-		Queue queue = Queue.getQueue();
-		*/
         Queue queue = new Queue();
-		/*
-		Creo el servidor
-			Servidor servidor = Servidor.getServidor();
-		*/
         Servidor servidor = new Servidor();
 
+        // Inicializamos el tiempo de la simulacion.
         tiempoSimulacion = 0;
-        /*Creo evento de Fin de Simulacion y lo cargo a la FEL*/
-        fel.insertarFel(new EventoFinSimulacion(10080)); //1 Semana = 10080 Minutos
+        // Creo evento de Fin de Simulacion y lo cargo a la FEL, con 'tiempo' igual al tiempo que se desea ejecutar la simulacion.
+        fel.insertarFel(new EventoFinSimulacion(10080)); // 1 Semana = 10080 Minutos
 
-        /*Creo primer evento de Arribo*/
+        // Creo primer evento de Arribo
         fel.insertarFel(new EventoArribo(tiempoSimulacion));
 
         while (!finSimulacion) {
-            actual = fel.suprimirFel();//Suponiendo que está ordenada de menor a mayor
-            tiempoSimulacion = tiempoSimulacion + actual.getTiempo(); /*Ir actualizando el tiempo*/
+            // Actual toma el primer elemento del la Fel, el cual es el mas cercano en el tiempo.
+            actual = fel.suprimirFel();
+            // Actualizamos el tiempo de Simulacion.
+            tiempoSimulacion = tiempoSimulacion + actual.getTiempo();
 
+            // Planificamos el evento proximo a partir de 'actual'
             actual.planificarEvento(servidor, queue);
+
             if (actual.getTipo() == 2) {
+                // Si el evento es de 'FinSimulacion' terminar con el loop.
                 finSimulacion = true;
             }
-
         }
-        /*Mostrar reportes*/
+
+        // TODO: 8/4/2018 Se deben mostrar por pantalla los resultados de la simulacion.
 
     }
 
