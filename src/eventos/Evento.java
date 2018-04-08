@@ -46,15 +46,15 @@ public abstract class Evento implements Comparable<Evento> {
         this.item = item;
     }
 
-    /**
-     * Implementa la planiificacion de eventos.
+    /*
+     * Implementa la planificacion de eventos.
      */
     public abstract void planificarEvento(Servidor servidor, Queue queue);
 
 
     @Override
-    public int compareTo(Evento o) { //Ordenar por menor tiempo
-
+    public int compareTo(Evento o) {
+        //Ordenar por menor tiempo
         return Float.compare(this.getTiempo(), o.getTiempo());
     }
 
