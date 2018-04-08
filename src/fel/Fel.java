@@ -1,17 +1,18 @@
 package fel;
 
 import eventos.Evento;
+import javafx.collections.transformation.SortedList;
 
 import java.util.LinkedList;
+import java.util.List;
 
 
 
 public class Fel {
 	private static Fel fel;
 	private LinkedList<Evento> lista;
-        
-	private Fel(){
-            lista = new LinkedList<>();
+	private Fel(){ lista = new LinkedList<>();
+
 	}
 	
 	public static Fel getFel(){
@@ -21,7 +22,7 @@ public class Fel {
 	}
 	
 	public void insertarFel(Evento e){
-
+        lista.add(e);
 	}
 
 	public Evento suprimirFel(){

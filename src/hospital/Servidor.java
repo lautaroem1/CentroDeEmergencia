@@ -13,7 +13,7 @@ public class Servidor {
 		item=null; //No hay items en el servidor
 		estado=false; //Desocupado
 		tiempoOcioso=0;//No hay tiempo Ocioso
-                tiempoInicioOcio=0;//Inicio de Ocio en 0
+		tiempoInicioOcio=0;//Inicio de Ocio en 0
 	}
 	
 	
