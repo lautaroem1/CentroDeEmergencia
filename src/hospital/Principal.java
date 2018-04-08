@@ -38,11 +38,12 @@ public class Principal {
         fel.insertarFel(new EventoArribo(tiempoSimulacion));
 
         while(!finSimulacion){
-            actual=fel.suprimirFel();
-            actual.planificarEvento(servidor,queue);//Suponiendo que está ordenada de menor a mayor
+            actual=fel.suprimirFel();//Suponiendo que está ordenada de menor a mayor
+            tiempoSimulacion=tiempoSimulacion+actual.getTiempo(); /*Ir actualizando el tiempo*/
+
+            actual.planificarEvento(servidor,queue);
                 if(actual.getTipo()==2){
                     finSimulacion=true;
-
                 }
 
             }
