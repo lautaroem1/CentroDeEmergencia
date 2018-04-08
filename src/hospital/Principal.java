@@ -1,6 +1,7 @@
 package hospital;
 
 import eventos.Evento;
+import eventos.EventoArribo;
 import eventos.EventoFinSimulacion;
 import fel.Fel;
 import fel.Queue;
@@ -29,10 +30,20 @@ public class Principal {
 		*/
 		Servidor servidor = new Servidor();
 
+		tiempoSimulacion=0;
 		/*Creo evento de Fin de Simulacion y lo cargo a la FEL*/
-		fel.insertarFel(new EventoFinSimulacion());
-		
-		//Continuar con la implementación ...
+		fel.insertarFel(new EventoFinSimulacion(10080)); //1 Semana = 10080 Minutos
+
+        /*Creo primer evento de Arribo*/
+        fel.insertarFel(new EventoArribo(tiempoSimulacion));
+
+        while(finSimulacion){
+            actual=fel.suprimirFel();
+            actual.planificarEvento(servidor,queue);//Suponiendo que está ordenada de menor a mayor
+            //COntinuar me fui a comer avisame cualquier cosa
+
+
+        }
 
 	}
 }
