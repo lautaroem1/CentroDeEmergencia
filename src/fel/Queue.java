@@ -15,7 +15,7 @@ public class Queue {
     }
 
     public void insertarCola(Item item) {
-        this.cola.addFirst(item);
+        this.cola.addLast(item);
     }
 
     public Item suprimirCola() {
