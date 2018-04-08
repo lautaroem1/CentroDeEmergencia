@@ -7,19 +7,19 @@ import java.util.LinkedList;
 public class Queue {
 
     private int cantidadItems;
-    private LinkedList cola;
+    private LinkedList<Item> cola;
 
     public Queue() {
-        cola = new LinkedList();
+        cola = new LinkedList<>();
         cantidadItems = 0;
     }
 
     public void insertarCola(Item item) {
-
+        this.cola.addFirst(item);
     }
 
     public Item suprimirCola() {
-
+        return this.cola.removeFirst();
     }
 
     public boolean HayCola() {
