@@ -9,7 +9,7 @@ public class EventoSalida extends Evento {
 
     public EventoSalida(float tiempo, Item item) {
 
-        super((byte) 2,tiempo,item);
+        super((byte) 1,tiempo,item);
     }
 
     public void planificarEvento(Servidor servidor, Queue queue) {
