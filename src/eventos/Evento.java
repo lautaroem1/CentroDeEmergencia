@@ -3,7 +3,7 @@ package eventos;
 import fel.Queue;
 import hospital.Servidor;
 
-public abstract class Evento {
+public abstract class Evento implements Comparable<Evento> {
 
     private byte tipo;
 	/*
@@ -16,8 +16,10 @@ public abstract class Evento {
 	
     private Item item;
 
-    public Evento(int tipo, float tiempo, Item item) {
-
+    public Evento(byte tipo, float tiempo, Item item) {
+        this.tiempo=tiempo;
+        this.item=item;
+        this.tipo=tipo;
     }
 
     public byte getTipo() {
@@ -48,4 +50,12 @@ public abstract class Evento {
      * Implementa la planiificacion de eventos.
      */
     public abstract void planificarEvento(Servidor servidor, Queue queue);
-}
+
+
+    @Override
+    public int compareTo(Evento o) { //Ordenar por menor tiempo
+
+        return Float.compare(this.getTiempo(),o.getTiempo());
+        }
+
+    }
