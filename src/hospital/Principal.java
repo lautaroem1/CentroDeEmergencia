@@ -1,6 +1,7 @@
 package hospital;
 
 import eventos.Evento;
+import eventos.EventoFinSimulacion;
 import fel.Fel;
 import fel.Queue;
 
@@ -27,6 +28,9 @@ public class Principal {
 			Servidor servidor = Servidor.getServidor();
 		*/
 		Servidor servidor = new Servidor();
+
+		/*Creo evento de Fin de Simulacion y lo cargo a la FEL*/
+		fel.insertarFel(new EventoFinSimulacion());
 		
 		//Continuar con la implementación ...
 
