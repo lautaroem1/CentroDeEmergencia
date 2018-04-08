@@ -42,10 +42,11 @@ public class Servidor {
 
     /**
      * Calcula y guarda el tiempo ocioso total del servidor
+     *
      * @param tiempoActual es el tiempo actual del sistema.
      */
     public void setTiempoOcioso(float tiempoActual) {
-        this.tiempoOcioso =+ (tiempoActual - this.getTiempoInicioOcio());
+        this.tiempoOcioso = +(tiempoActual - this.getTiempoInicioOcio());
     }
 
     public float getTiempoInicioOcio() {

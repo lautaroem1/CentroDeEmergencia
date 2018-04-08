@@ -13,7 +13,7 @@ public abstract class Evento implements Comparable<Evento> {
         2: Fin de Simulacion
     */
     private float tiempo;
-
+    // Considerese el 'clock'
     private Item item;
 
     public Evento(byte tipo, float tiempo, Item item) {
@@ -50,7 +50,6 @@ public abstract class Evento implements Comparable<Evento> {
      * Implementa la planificacion de eventos.
      */
     public abstract void planificarEvento(Servidor servidor, Queue queue);
-
 
     @Override
     public int compareTo(Evento o) {

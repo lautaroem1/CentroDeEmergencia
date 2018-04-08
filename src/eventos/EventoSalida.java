@@ -16,6 +16,7 @@ public class EventoSalida extends Evento {
         if (!queue.HayCola()) {
             // Si no hay cola, marcar al Servidor como no ocupado.
             servidor.setOcupado(false);
+
             // Debe empezar a contar el tiempo de ocio.
             servidor.setTiempoInicioOcio(this.getTiempo());
 
