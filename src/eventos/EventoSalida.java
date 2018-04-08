@@ -1,5 +1,7 @@
 package eventos;
 
+import fel.Fel;
+import fel.GeneradorTiempos;
 import fel.Queue;
 import hospital.Servidor;
 
@@ -16,7 +18,11 @@ public class EventoSalida extends Evento {
             servidor.setEstado(false);
         }
         else{
-            //Mañana lo seguiremos
+            int duracionServicio= GeneradorTiempos.getTiempoDuracionServicio();
+            EventoSalida eventoSalida=new EventoSalida(this.getTiempo()+duracionServicio,queue.suprimirCola());
+            Fel.getFel().insertarFel(eventoSalida);
+
+            //Coleccionar Estadisticas
         }
     }
 }

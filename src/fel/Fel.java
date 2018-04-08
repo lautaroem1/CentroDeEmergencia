@@ -26,11 +26,11 @@ public class Fel {
 	}
 
 	public Evento suprimirFel(){
-		return null;
+		return this.lista.removeFirst(); //Suponiendo que esta ordenada cronologicamente de menor a mayor a través del Comparable del Evento.
 	}
 	
 	public void mostrarFel(){
-
+		//Como la mostrariamos
 	}
 	
 	public LinkedList getLista() {

@@ -3,6 +3,7 @@ package eventos;
 import fel.Fel;
 import fel.GeneradorTiempos;
 import fel.Queue;
+import hospital.Estadisticas;
 import hospital.Servidor;
 
 import java.util.Collections;
@@ -25,13 +26,20 @@ public class EventoArribo extends Evento {
 
         if(!servidor.isEstado()){
             this.getItem().setTiempoDuracionServicio(GeneradorTiempos.getTiempoDuracionServicio());
-            //Planificar Nueva Salida en tiempo t+s*
+            //Planificar nueva Salida
+            EventoSalida eventoSalida= new EventoSalida(this.getTiempo()+this.getItem().getTiempoDuracionServicio(),this.getItem());
+            Fel.getFel().insertarFel(eventoSalida);
+
+            Collections.sort(Fel.getFel().getLista());//Para que queden ordenados de manera cronologica
+
+
         }
         else{
             queue.insertarCola(this.getItem());
         }
         Evento arriboProximo=new EventoArribo(this.getTiempo()+GeneradorTiempos.getTiempoEntreArribos());
-        Fel.getFel().getLista().add(arriboProximo);
+        Fel.getFel().insertarFel(arriboProximo);
+
         Collections.sort(Fel.getFel().getLista()); //Para que queden ordenados de manera cronologica
 
         //Coleccionar Estadisticas
