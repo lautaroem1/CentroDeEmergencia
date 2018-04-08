@@ -40,10 +40,14 @@ public class Principal {
         while(finSimulacion){
             actual=fel.suprimirFel();
             actual.planificarEvento(servidor,queue);//Suponiendo que está ordenada de menor a mayor
-            //COntinuar me fui a comer avisame cualquier cosa
+                if(actual.getTipo()==2){
+                    finSimulacion=true;
 
+                }
+
+            }
+            /*Mostrar reportes*/
 
         }
 
 	}
-}
