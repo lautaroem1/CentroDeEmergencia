@@ -37,7 +37,7 @@ public class Principal {
         /*Creo primer evento de Arribo*/
         fel.insertarFel(new EventoArribo(tiempoSimulacion));
 
-        while(finSimulacion){
+        while(!finSimulacion){
             actual=fel.suprimirFel();
             actual.planificarEvento(servidor,queue);//Suponiendo que está ordenada de menor a mayor
                 if(actual.getTipo()==2){
