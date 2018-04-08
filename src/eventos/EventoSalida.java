@@ -16,12 +16,16 @@ public class EventoSalida extends Evento {
         if (!queue.HayCola()) {
             // Si no hay cola, marcar al Servidor como no ocupado.
             servidor.setOcupado(false);
+
+            // Debe empezar a contar el tiempo de ocio.
+            servidor.setTiempoInicioOcio(this.getTiempo());
+
         } else {
             // De lo contrario, actualizar la cola y planificar proxima Salida con un nuevo Tiempo
             // TODO: 8/4/2018 Queue debe reducirse en 1 y actualizar su cantidad.
             Fel.getFel().insertarFel(new EventoSalida(this.getTiempo() + GeneradorTiempos.getTiempoDuracionServicio(), queue.suprimirCola()));
 
-            //Coleccionar Estadisticas
+            // TODO: 8/4/2018 Implementar coleccion de Estadisticas
         }
     }
 }

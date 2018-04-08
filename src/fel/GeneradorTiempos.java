@@ -7,7 +7,6 @@ public class GeneradorTiempos {
 
     private static Random random;
 
-    /* Static solo, que es esto?? */
     static {
         random = new Random(System.currentTimeMillis());
     }

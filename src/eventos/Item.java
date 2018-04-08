@@ -1,12 +1,13 @@
 package eventos;
 
 public class Item {
-    private int numero;
-    private float tiempoArribo;
-    private float tiempoDuracionServicio;
     private static float tiempoEsperaCola = 0;
     private static float tiempoTransito = 0;
     private static int cantidadItems = 0;
+
+    private int numero;
+    private float tiempoArribo;
+    private float tiempoDuracionServicio;
 
     public Item(int numero, float tiempoArribo) {
         this.numero = numero;
@@ -27,7 +28,11 @@ public class Item {
     }
 
     public static void setTiempoEsperaCola(float tiempoActual, float tiempoDuracionServicio, float tiempoArribo) {
-        /* Calcular el tiempo de espera en la Queue */
+        // El tiempo de espera en cola total es igual a la sumatoria de todos los tiempos de espera en cola.
+        // Cada tiempo de cola se calcula con el tiempo actual,
+        // que seria el tiempo en el que termina de atenderse, menos el tiempo en el que llego menos el tiempo de duracion de servicio.
+        tiempoEsperaCola = +tiempoActual - (tiempoDuracionServicio + tiempoArribo);
+        // El valor sumado deberia ser mayor o igual a 0. tiempoActual debe ser siempre igual o mayor que la suma del tiempoDuracionServicio y tiempoArribo.
     }
 
     public static float getTiempoTransito() {
@@ -35,10 +40,10 @@ public class Item {
     }
 
     public static void setTiempoTransito(float tiempoActual, float tiempoArribo) {
-		/* 
-		Calcular el tiempo de transito en el sistema 
-		Se deriva del tiempoActual y tiempoArribo
-		*/
+        // El tiempo de transito total es igual a la sumatoria de todos los tiempos de transito.
+        // Cada tiempo de transito se calcula con el tiempo actual,
+        // que seria el tiempo en que termina de atenderse, menos el tiempo en que llega.
+        tiempoTransito = +tiempoActual - tiempoArribo;
     }
 
     public int getNumero() {
