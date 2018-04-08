@@ -3,77 +3,52 @@ package hospital;
 import eventos.Item;
 
 public class Servidor {
-	private Item item;
-	private boolean estado;
-	private float tiempoOcioso;
-	private float tiempoInicioOcio;
-	
-	
-	public Servidor(){
-		item=null; //No hay items en el servidor
-		estado=false; //Desocupado
-		tiempoOcioso=0;//No hay tiempo Ocioso
-		tiempoInicioOcio=0;//Inicio de Ocio en 0
-	}
-	
-	
-        
-	/**
-	 * @return Returns the item.
-	 */
-	public Item getItem() {
-		return item;
-	}
-	
-        /**
-	 * @param item The item to set.
-	 */
-	public void setItem(Item item) {
-		this.item = item;
-	}
+    private Item item;
+    private boolean ocupado;
+    private float tiempoOcioso;
+    private float tiempoInicioOcio;
 
-	/**
-	 * @return Returns the estado.
-	 */
-	public boolean isEstado() {
-		return estado;
-	}
-	
-        /**
-	 * @param estado The estado to set.
-	 */
-	public void setEstado(boolean estado) {
-		this.estado = estado;
-	}
 
-	/**
-	 * @return Returns the tiempoOcioso.
-	 */
-	
-	public float getTiempoOcioso() {
-		return tiempoOcioso;
-	}
-	
-	
-	/**
-	 * @param tiempoOcioso The tiempoOcioso to set.
-	 */
-	public void setTiempoOcioso(float tiempoOcioso) {
-		//calcular el tiempo de inicio de ocio
-	}
+    public Servidor() {
+        item = null;
+        // No hay items en el servidor
+        ocupado = false;
+        // Desocupado
+        tiempoOcioso = 0;
+        // Tiempo ocioso inical es de 0.
+        tiempoInicioOcio = 0;
+        // Inicio de Ocio en 0
+    }
 
-	/**
-	 * @return Returns the tiempoInicioOcio.
-	 */
+    public Item getItem() {
+        return item;
+    }
 
-	public float getTiempoInicioOcio() {
-		return tiempoInicioOcio;
-	}
+    public void setItem(Item item) {
+        this.item = item;
+    }
 
-	/**
-	 * @param tiempoInicioOcio The tiempoInicioOcio to set.
-	 */
-	public void setTiempoInicioOcio(float tiempoInicioOcio) {
-		this.tiempoInicioOcio = tiempoInicioOcio;
-	}
+    public boolean isOcupado() {
+        return ocupado;
+    }
+
+    public void setOcupado(boolean ocupado) {
+        this.ocupado = ocupado;
+    }
+
+    public float getTiempoOcioso() {
+        return tiempoOcioso;
+    }
+
+    public void setTiempoOcioso(float tiempoOcioso) {
+        this.tiempoOcioso = tiempoOcioso;
+    }
+
+    public float getTiempoInicioOcio() {
+        return tiempoInicioOcio;
+    }
+
+    public void setTiempoInicioOcio(float tiempoInicioOcio) {
+        this.tiempoInicioOcio = tiempoInicioOcio;
+    }
 }

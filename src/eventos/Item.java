@@ -1,7 +1,7 @@
 package eventos;
 
 public class Item {
-    private int numero = 0;
+    private int numero;
     private float tiempoArribo;
     private float tiempoDuracionServicio;
     private static float tiempoEsperaCola = 0;
