@@ -36,7 +36,7 @@ public class Principal {
             // Actual toma el primer elemento del la Fel, el cual es el mas cercano en el tiempo.
             actual = fel.suprimirFel();
             // Actualizamos el tiempo de Simulacion.
-            tiempoSimulacion = tiempoSimulacion + actual.getTiempo();
+            tiempoSimulacion =actual.getTiempo();
 
             // Planificamos el evento proximo a partir de 'actual'
             actual.planificarEvento(servidor, queue);
@@ -57,7 +57,7 @@ public class Principal {
         System.out.println("    *"+Estadisticas.tiempoEsperaMedio);
         System.out.println("\n**Porcentaje de tiempo ocioso del médico:     ");
         System.out.println("    *"+Estadisticas.porcentajeTiempoOcioso);
-        System.out.println("\n**Tiempo medio de espera de los pacientes:    ");
+        System.out.println("\n**Tiempo medio de tiempo de tránsito:    ");
         System.out.println("    *"+Estadisticas.tiempoMedioTransito);
 
     }
