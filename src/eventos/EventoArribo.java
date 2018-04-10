@@ -26,6 +26,8 @@ public class EventoArribo extends Evento {
             // Insertamos en la Fel el evento de salida
             Fel.getFel().insertarFel(eventoSalida);
 
+            /*Colecto tiempo Ocioso*/
+
             // Si el servidor no estaba ocupado, calcularle el tiempo de ocio.
             // Se calcula con el tiempo actual menos el tiempo de inicio de ocio.
             servidor.setTiempoOcioso(this.getTiempo());

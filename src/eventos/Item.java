@@ -29,10 +29,13 @@ public class Item {
 
     public static void setTiempoEsperaCola(float tiempoActual, float tiempoDuracionServicio, float tiempoArribo) {
         // El tiempo de espera en cola total es igual a la sumatoria de todos los tiempos de espera en cola.
+
         // Cada tiempo de cola se calcula con el tiempo actual,
         // que seria el tiempo en el que termina de atenderse, menos el tiempo en el que llego menos el tiempo de duracion de servicio.
-        tiempoEsperaCola = +tiempoActual - (tiempoDuracionServicio + tiempoArribo);
+        tiempoEsperaCola += tiempoActual - (tiempoDuracionServicio + tiempoArribo);
         // El valor sumado deberia ser mayor o igual a 0. tiempoActual debe ser siempre igual o mayor que la suma del tiempoDuracionServicio y tiempoArribo.
+
+        /*REVISAR CASO en que sea negativo, a mi no se me ocurrió ninguno, si se te llega a ocurrir alguno, mandamelo y agregarle ese control*/
     }
 
     public static float getTiempoTransito() {
@@ -43,7 +46,7 @@ public class Item {
         // El tiempo de transito total es igual a la sumatoria de todos los tiempos de transito.
         // Cada tiempo de transito se calcula con el tiempo actual,
         // que seria el tiempo en que termina de atenderse, menos el tiempo en que llega.
-        tiempoTransito = +tiempoActual - tiempoArribo;
+        tiempoTransito +=tiempoActual - tiempoArribo;
     }
 
     public int getNumero() {
