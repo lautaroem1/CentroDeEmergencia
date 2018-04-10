@@ -3,6 +3,7 @@ package hospital;
 import eventos.Evento;
 import eventos.EventoArribo;
 import eventos.EventoFinSimulacion;
+import eventos.Item;
 import fel.Fel;
 import fel.Queue;
 
@@ -46,6 +47,16 @@ public class Principal {
         }
 
         // TODO: 8/4/2018 Se deben mostrar por pantalla los resultados de la simulacion.
+        Estadisticas.calcularEstadisticas(Item.getTiempoEsperaCola(),Item.getTiempoTransito(),servidor.getTiempoOcioso(),tiempoSimulacion,Item.getCantidadItems());
+        System.out.println("##############################################");
+        System.out.println("#########RESULTADOS DE LA SIMULACION##########");
+        System.out.println("##############################################");
+        System.out.println("\n**Tiempo medio de espera de los pacientes:  ");
+        System.out.println("    *"+Estadisticas.tiempoEsperaMedio);
+        System.out.println("\n**Porcentaje de tiempo ocioso del médico:     ");
+        System.out.println("    *"+Estadisticas.porcentajeTiempoOcioso);
+        System.out.println("\n**Tiempo medio de espera de los pacientes:    ");
+        System.out.println("    *"+Estadisticas.tiempoMedioTransito);
 
     }
 
