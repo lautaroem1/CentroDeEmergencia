@@ -16,13 +16,17 @@ public class Queue {
 
     public void insertarCola(Item item) {
         this.cola.addLast(item);
+        this.cantidadItems++;
     }
 
     public Item suprimirCola() {
+        this.cantidadItems--;
         return this.cola.removeFirst();
+
     }
 
     public boolean HayCola() {
         return this.cantidadItems > 0;
     }
+
 }
