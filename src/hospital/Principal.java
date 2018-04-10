@@ -26,10 +26,11 @@ public class Principal {
         // Inicializamos el tiempo de la simulacion.
         tiempoSimulacion = 0;
         // Creo evento de Fin de Simulacion y lo cargo a la FEL, con 'tiempo' igual al tiempo que se desea ejecutar la simulacion.
-        fel.insertarFel(new EventoFinSimulacion(10080)); // 1 Semana = 10080 Minutos
+        fel.insertarFel(new EventoFinSimulacion(50)); // 1 Semana = 10080 Minutos
 
         // Creo primer evento de Arribo
         fel.insertarFel(new EventoArribo(tiempoSimulacion));
+        fel.mostrarFel();
 
         while (!finSimulacion) {
             // Actual toma el primer elemento del la Fel, el cual es el mas cercano en el tiempo.
@@ -44,6 +45,7 @@ public class Principal {
                 // Si el evento es de 'FinSimulacion' terminar con el loop.
                 finSimulacion = true;
             }
+            fel.mostrarFel();
         }
 
         // TODO: 8/4/2018 Se deben mostrar por pantalla los resultados de la simulacion.

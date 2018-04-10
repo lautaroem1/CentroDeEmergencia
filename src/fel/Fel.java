@@ -45,5 +45,11 @@ public class Fel {
 
     public void mostrarFel() {
         // TODO: 8/4/2018 Implementar un mecanismo para mostrar la Fel.
+        System.out.println("MOSTRANDO ESTADO LISTA");
+        for(Evento e: this.lista){
+            System.out.println("N°Paciente:"+e.getItem().getNumero()+"  Tiempo:"+e.getTiempo()+"  Tipo Evento:"+e.getTipo());
+
+        }
+        System.out.println("FIN ESTADO LISTA");
     }
 }
