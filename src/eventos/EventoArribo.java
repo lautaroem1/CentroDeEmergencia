@@ -32,6 +32,7 @@ public class EventoArribo extends Evento {
             // Se calcula con el tiempo actual menos el tiempo de inicio de ocio.
             servidor.setTiempoOcioso(this.getTiempo());
 
+            /*No estaba ocupado y pasa a estarlo*/
             servidor.setOcupado(true);
 
         } else {
