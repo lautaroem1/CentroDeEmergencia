@@ -46,7 +46,7 @@ public class Servidor {
      * @param tiempoActual es el tiempo actual del sistema.
      */
     public void setTiempoOcioso(float tiempoActual) {
-        this.tiempoOcioso = +(tiempoActual - this.getTiempoInicioOcio());
+        this.tiempoOcioso += (tiempoActual - this.getTiempoInicioOcio());
     }
 
     public float getTiempoInicioOcio() {
