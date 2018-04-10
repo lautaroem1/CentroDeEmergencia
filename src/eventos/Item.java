@@ -30,6 +30,7 @@ public class Item {
     public static void setTiempoEsperaCola(float tiempoActual, float tiempoDuracionServicio, float tiempoArribo) {
         // El tiempo de espera en cola total es igual a la sumatoria de todos los tiempos de espera en cola.
 
+
         // Cada tiempo de cola se calcula con el tiempo actual,
         // que seria el tiempo en el que termina de atenderse, menos el tiempo en el que llego menos el tiempo de duracion de servicio.
         tiempoEsperaCola += tiempoActual - (tiempoDuracionServicio + tiempoArribo);
