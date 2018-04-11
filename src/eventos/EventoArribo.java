@@ -41,7 +41,6 @@ public class EventoArribo extends Evento {
         // El evento de Arribo genera otro de arribo, lo insertamos en la Fel.
         Fel.getFel().insertarFel(new EventoArribo(this.getTiempo() + GeneradorTiempos.getTiempoEntreArribos()));
 
-        // TODO: 8/4/2018 Implementar recoleccion de Estadisticas
 
 
     }

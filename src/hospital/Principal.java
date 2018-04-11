@@ -47,8 +47,7 @@ public class Principal {
             }
             fel.mostrarFel();
         }
-
-        // TODO: 8/4/2018 Se deben mostrar por pantalla los resultados de la simulacion.
+        /*Mostrando resultados*/
         Estadisticas.calcularEstadisticas(Item.getTiempoEsperaCola(),Item.getTiempoTransito(),servidor.getTiempoOcioso(),tiempoSimulacion,Item.getCantidadItems());
         System.out.println("##############################################");
         System.out.println("#########RESULTADOS DE LA SIMULACION##########");
