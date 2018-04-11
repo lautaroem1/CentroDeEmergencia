@@ -28,14 +28,10 @@ public class Fel {
         try {
             this.lista.add(e);
         } catch (Exception e1) {
-            // TODO: 8/4/2018 Si no se puede agregar un elemento a la Fel se deberia notificar al usuario con un cartel de error, y cerrar la simulacion.
+            System.out.println("El sistema no puede agregar elementos a la lista. Error fatal.");
             System.exit(-1);
         }
         this.lista.sort(null);
-        /*
-        Deberia estar ordenando con el compareTo de Evento, sino, usamos directamente la linea de abajo.
-        Collections.sort(this.getLista());
-        */
     }
 
     public Evento suprimirFel() {
@@ -44,11 +40,12 @@ public class Fel {
     }
 
     public void mostrarFel() {
-        System.out.println("MOSTRANDO ESTADO LISTA");
-        for(Evento e: this.lista){
-            System.out.println("N°Paciente:"+e.getItem().getNumero()+"  Tiempo:"+e.getTiempo()+"  Tipo Evento:"+e.getTipo());
+        // Herramienta de Debug para ver la lista.
+        System.out.println("--- MOSTRANDO ESTADO LISTA ---\n");
+        for (Evento e : this.lista) {
+            System.out.println("N°Paciente:" + e.getItem().getNumero() + "  Tiempo:" + e.getTiempo() + "  Tipo Evento:" + e.getTipo());
 
         }
-        System.out.println("FIN ESTADO LISTA");
+        System.out.println("--- FIN ESTADO LISTA --- \n");
     }
 }

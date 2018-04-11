@@ -22,7 +22,6 @@ public class Queue {
     public Item suprimirCola() {
         this.cantidadItems--;
         return this.cola.removeFirst();
-
     }
 
     public boolean HayCola() {

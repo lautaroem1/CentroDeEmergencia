@@ -26,29 +26,15 @@ public abstract class Evento implements Comparable<Evento> {
         return tipo;
     }
 
-    public void setTipo(byte tipo) {
-        this.tipo = tipo;
-    }
-
     public float getTiempo() {
         return tiempo;
-    }
-
-    public void setTiempo(float tiempo) {
-        this.tiempo = tiempo;
     }
 
     public Item getItem() {
         return item;
     }
 
-    public void setItem(Item item) {
-        this.item = item;
-    }
-
-    /*
-     * Implementa la planificacion de eventos.
-     */
+    // Implementa la planificacion de eventos.
     public abstract void planificarEvento(Servidor servidor, Queue queue);
 
     @Override

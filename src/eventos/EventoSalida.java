@@ -12,7 +12,7 @@ public class EventoSalida extends Evento {
     }
 
     public void planificarEvento(Servidor servidor, Queue queue) {
-        /* Planificar nuevo evento de salida */
+        // Planificar nuevo evento de salida
         if (!queue.HayCola()) {
             // Si no hay cola, marcar al Servidor como no ocupado.
             servidor.setOcupado(false);
@@ -21,17 +21,16 @@ public class EventoSalida extends Evento {
             servidor.setTiempoInicioOcio(this.getTiempo());
 
         } else {
-            // De lo contrario, actualizar la cola y planificar proxima Salida con un nuevo Tiempo
-            /*Saco item de la cola*/
-            /*Genero evento de salida con itemActual*/
+            // Saco item de la cola y genero evento de salida con itemActual
 
             Fel.getFel().insertarFel(new EventoSalida(this.getTiempo() + GeneradorTiempos.getTiempoDuracionServicio(), queue.suprimirCola()));
 
         }
-        /*Colecto tiempo en espera*/
-        Item.setTiempoEsperaCola(this.getTiempo(),this.getItem().getTiempoDuracionServicio(),this.getItem().getTiempoArribo());
 
-        /*Colecto tiempo en tránsito*/
-        Item.setTiempoTransito(this.getTiempo(),this.getItem().getTiempoArribo());
+        // Colecto tiempo en espera
+        Item.setTiempoEsperaCola(this.getTiempo(), this.getItem().getTiempoDuracionServicio(), this.getItem().getTiempoArribo());
+
+        // Colecto tiempo en tránsito
+        Item.setTiempoTransito(this.getTiempo(), this.getItem().getTiempoArribo());
     }
 }
