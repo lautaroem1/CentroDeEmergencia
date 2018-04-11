@@ -20,12 +20,12 @@ public class Estadisticas {
         /*Tiempo espera medio por paciente*/
         /*Si en la simulación no hubieran habido tiempos de espera, que no genere un valor inválido*/
         if(tiempoEsperaCola!=0)
-            tiempoEsperaMedio=((float)cantidadItems)/tiempoEsperaCola;
+            tiempoEsperaMedio=tiempoEsperaCola/((float)cantidadItems);
 
         /*Porcentaje de tiempo Ocioso del médico*/
         porcentajeTiempoOcioso=(tiempoOcioso/tiempoFinSimulacion);
         /*Tiempo medio de tránsito por paciente*/
-        tiempoMedioTransito=((float)cantidadItems)/tiempoTransito;
+        tiempoMedioTransito=tiempoTransito/((float)cantidadItems);
 
     }
 }
