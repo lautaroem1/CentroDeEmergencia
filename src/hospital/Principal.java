@@ -26,7 +26,7 @@ public class Principal {
         // Inicializamos el tiempo de la simulacion.
         tiempoSimulacion = 0;
         // Creo evento de Fin de Simulacion y lo cargo a la FEL, con 'tiempo' igual al tiempo que se desea ejecutar la simulacion.
-        fel.insertarFel(new EventoFinSimulacion(50)); // 1 Semana = 10080 Minutos
+        fel.insertarFel(new EventoFinSimulacion(10080)); // 1 Semana = 10080 Minutos
 
         // Creo primer evento de Arribo
         fel.insertarFel(new EventoArribo(tiempoSimulacion));
@@ -54,11 +54,11 @@ public class Principal {
         System.out.println("#########RESULTADOS DE LA SIMULACION##########");
         System.out.println("##############################################");
         System.out.println("\n**Tiempo medio de espera de los pacientes:  ");
-        System.out.println("    *"+Estadisticas.tiempoEsperaMedio);
+        System.out.println("    * "+Estadisticas.tiempoEsperaMedio+" min.");
         System.out.println("\n**Porcentaje de tiempo ocioso del médico:     ");
-        System.out.println("    *"+Estadisticas.porcentajeTiempoOcioso);
+        System.out.printf("    * %%%.2f\n",(Estadisticas.porcentajeTiempoOcioso*100));
         System.out.println("\n**Tiempo medio de tiempo de tránsito:    ");
-        System.out.println("    *"+Estadisticas.tiempoMedioTransito);
+        System.out.printf("    * %.2f min.\n",Estadisticas.tiempoMedioTransito);
 
     }
 
