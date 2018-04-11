@@ -29,7 +29,6 @@ public class EventoSalida extends Evento {
 
         }
         /*Colecto tiempo en espera*/
-        System.out.println("TIEMPO COLA ACTUAL: "+(this.getTiempo() - (this.getItem().getTiempoDuracionServicio() + this.getItem().getTiempoArribo())));
         Item.setTiempoEsperaCola(this.getTiempo(),this.getItem().getTiempoDuracionServicio(),this.getItem().getTiempoArribo());
 
         /*Colecto tiempo en tránsito*/
