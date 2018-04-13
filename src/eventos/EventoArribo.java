@@ -17,14 +17,15 @@ public class EventoArribo extends Evento {
     public void planificarEvento(Servidor servidor, Queue queue) {
         /* Planificar el nuevo evento de arribo */
 
-        if (!servidor.isOcupado()) {
+        if (servidor.isOcupado()) {
+            queue.insertarCola(this.getItem());
+        } else {
             // Si el servidor no estaba ocupado...
             this.getItem().setTiempoDuracionServicio(GeneradorTiempos.getTiempoDuracionServicio());
             // se setea a si mismo el tiempo de Duracion de Servicio...
             // y planifica nueva Salida.
-            EventoSalida eventoSalida = new EventoSalida(this.getTiempo() + this.getItem().getTiempoDuracionServicio(), this.getItem());
+            EventoSalida eventoSalida = new EventoSalida(this.getTiempo() + this.getItem().getTiempoDuracionServicio(),this.getItem());
             // Insertamos en la Fel el evento de salida
-
             Fel.getFel().insertarFel(eventoSalida);
 
             // Colecto tiempo ocioso
@@ -33,8 +34,6 @@ public class EventoArribo extends Evento {
             // No estaba ocupado y pasa a estarlo
             servidor.setOcupado(true);
 
-        } else {
-            queue.insertarCola(this.getItem());
         }
         // El evento de Arribo genera otro de arribo, lo insertamos en la Fel.
         Fel.getFel().insertarFel(new EventoArribo(this.getTiempo() + GeneradorTiempos.getTiempoEntreArribos()));
